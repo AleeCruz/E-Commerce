@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+/* variables.css */
+
+:root {
+    --bg-soft: #fff6f8;
+    --bg-warm: #ffe3ea;
+    --primary: #f48fb1;
+    --primary-dark: #ec6f98;
+    --secondary: #90caf9;
+    --accent: #ffd180;
+    --lavender: #c5b3ff;
+    --mint: #b2f2e5;
+    --text-dark: #5a4a4a;
+    --text-light: #ffffff;
+    --shadow-soft: rgba(244, 143, 177, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

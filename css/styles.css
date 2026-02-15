@@ -1,0 +1,11 @@
+/* styles.css */
+
+body {
+    background: var(--bg-soft);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+}
+
+main {
+    padding: 80px 60px;
+}
