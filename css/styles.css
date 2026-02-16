@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+@import "variables.css";
+@import "navbar.css";
+@import "footer.css";
+
+/* Tus estilos generales aquí */
+
 /* styles.css */
 
 body {
     background: var(--bg-soft);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Fredoka', sans-serif;
     color: var(--text-dark);
 }
 

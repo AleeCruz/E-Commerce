@@ -19,8 +19,9 @@
 }
 
 .Logo-text {
+    font-family: 'Fredoka', sans-serif; /* Opcional para asegurar */
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 600; /* Aquí usará el peso 600 que importaste */
     color: var(--primary);
 }
 
