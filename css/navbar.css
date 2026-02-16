@@ -1,3 +1,6 @@
+/* =========================================
+   NAVBAR PRINCIPAL
+   ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -5,30 +8,61 @@
     padding: 15px 60px;
     background: white;
     box-shadow: 0 5px 20px var(--shadow-soft);
+    
+    /* CAMBIO A FIXED */
+    position: fixed; /* Esto la deja clavada al 100% */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000; 
 }
-
+/* Contenedor del Logo */
 .logo-container {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease; /* Preparamos la transición */
+}
+
+.logo-container:hover {
+    transform: scale(1.05); /* Crece un 5% */
 }
 
 .logo-img {
     width: 50px;
+    height: 50px;
     border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--bg-warm); /* Un borde sutil */
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover .logo-img {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--shadow-soft);
 }
 
 .Logo-text {
-    font-family: 'Fredoka', sans-serif; /* Opcional para asegurar */
+    font-family: 'Fredoka', sans-serif;
     font-size: 1.5rem;
-    font-weight: 600; /* Aquí usará el peso 600 que importaste */
+    font-weight: 600;
     color: var(--primary);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
+.logo-container:hover .Logo-text {
+    color: var(--primary-dark);
+    text-shadow: 2px 2px 4px var(--shadow-soft);
+}
+
+/* Lista de enlaces */
 .navbar ul {
     display: flex;
     list-style: none;
     gap: 30px;
+    align-items: center;
 }
 
 .navbar a {
@@ -40,4 +74,80 @@
 
 .navbar a:hover {
     color: var(--primary);
+}
+
+
+
+
+/* =========================================
+   DROPDOWN (MENÚ DESPLEGABLE)
+   ========================================= */
+
+/* Contenedor relativo para posicionar el menú */
+.dropdown {
+    position: relative;
+}
+
+/* Estilo del menú que aparece/desaparece */
+.dropdown-content {
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px var(--shadow-soft);
+    padding: 10px;
+    top: 130%; /* Espacio para que respire el menú */
+    border: 1px solid var(--bg-warm);
+    z-index: 1000;
+    list-style: none;
+    display: block; /* Mantenemos block para que la transición funcione */
+    
+    /* Estado inicial invisible para la animación */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+/* Clase que activa el JavaScript al hacer clic */
+.dropdown.active .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Enlaces dentro del desplegable */
+.dropdown-content li {
+    width: 100%;
+}
+
+.dropdown-content li a {
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+/* Efecto hover profesional en las subcategorías */
+.dropdown-content li a:hover {
+    background-color: var(--bg-soft);
+    color: var(--primary-dark) !important;
+    padding-left: 20px; /* Desplazamiento suave a la derecha */
+}
+
+
+/* Estilo para el icono de la flecha */
+.bi-chevron-down {
+    font-size: 0.75rem; /* Un poco más pequeña que el texto para que sea elegante */
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Rotación si el menú está abierto */
+.dropdown.active .bi-chevron-down {
+    transform: rotate(180deg);
 }
