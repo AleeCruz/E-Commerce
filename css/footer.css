@@ -1,9 +1,264 @@
-footer {
-    background: var(--bg-warm);
-    padding: 50px 60px;
-    text-align: center;
+/* footer.css */
+
+.main-footer {
+    background: linear-gradient(to bottom, #ffffff, var(--bg-warm));
+    padding: 80px 0 0 0;
+    margin-top: 100px;
+    border-top: 1px solid rgba(244, 143, 177, 0.2);
+    color: var(--text-dark);
 }
 
-footer h2 {
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
+    gap: 50px;
+}
+
+/* Títulos de sección */
+.footer-section h3 {
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Descripción de Marca */
+.brand-description {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Listas y Enlaces */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.footer-section ul li i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.footer-section.links ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-section.links ul li a:hover {
+    color: var(--primary-dark);
+    transform: translateX(8px);
+}
+
+/* Redes Sociales con estilo Glassmorphism */
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    background: white;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-soft);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-5px) rotate(8deg);
+}
+
+/* Newsletter mejorada */
+.newsletter p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.newsletter-form .input-group {
+    display: flex;
+    background: white;
+    padding: 5px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px var(--shadow-soft);
+    border: 1px solid var(--bg-warm);
+}
+
+.newsletter-form input {
+    border: none;
+    padding: 10px 15px;
+    flex: 1;
+    border-radius: 30px;
+    outline: none;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+}
+
+.newsletter-form button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: var(--primary-dark);
+}
+
+/* Footer Bottom (Pagos y Copy) */
+.footer-bottom {
+    margin-top: 60px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 25px 0;
+}
+
+.bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright span {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 20px;
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    opacity: 0.6;
+}
+
+/* Logo */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.footer-logo img { 
+    width: 45px;
+    border-radius: 50%;
+ }
+
+.footer-logo span { 
+    font-size: 1.6rem; 
+    font-weight: 700; 
     color: var(--primary-dark);
 }
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .footer-logo, .social-links, .footer-section ul li {
+        justify-content: center;
+    }
+
+    .bottom-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-section.links ul li a:hover {
+        transform: scale(1.1);
+    }
+}
+
+
+
+
+/* Estilos Opción J: Community */
+.community-stats {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+.stat-bubble {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px var(--shadow-soft);
+    flex: 1;
+}
+.stat-number { display: block; font-weight: 700; color: var(--primary-dark); font-size: 1.1rem; }
+.stat-label { font-size: 0.7rem; color: var(--text-dark); opacity: 0.7; text-transform: uppercase; }
+.tag-cloud { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag-cloud span { font-size: 0.75rem; color: var(--primary); font-weight: 600; }
+
+/* Estilos Opción K: Luxury Help */
+.help-card {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 20px;
+    border-radius: 2px; /* Bordes rectos para un look más serio/pro */
+    border: 1px solid var(--primary);
+}
+.luxury-link {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: var(--primary-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: letter-spacing 0.3s ease;
+}
+.luxury-link:hover { letter-spacing: 1px; }
+.divider-line { height: 1px; background: var(--primary); margin: 15px 0; opacity: 0.3; }
+.response-time { font-size: 0.75rem; font-style: italic; opacity: 0.8; }
+
+/* Estilos Opción L: Moodboard */
+.mood-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.mood-word { padding: 4px 10px; border-radius: 5px; font-size: 0.9rem; }
+.mood-word.serif { font-family: 'Georgia', serif; font-style: italic; background: var(--bg-soft); }
+.mood-word.bold { font-weight: 700; background: var(--bg-warm); }
+.mood-word.primary { background: var(--primary); color: white; }
+.mood-word.soft { border: 1px solid var(--primary); }
+.mood-word.accent { background: var(--accent); color: var(--text-dark); }
