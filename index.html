@@ -14,28 +14,37 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    
     <header>
         <nav class="navbar">
-            <a href="index.html" class="link-carinitho" style="text-decoration: none;">
+            <a href="index.html" class="link-carinitho">
                 <div class="logo-container">
                     <img src="assets/img/Carinitho_Logo.png" alt="Logo" class="logo-img">
                     <span class="Logo-text">Cariñitho</span>
                 </div>
             </a>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
+
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <ul class="nav-menu"> <li><a href="index.html">Inicio</a></li>
                 <li class="dropdown js-dropdown">
-                    <a href="#" class="dropbtn">Categorías <i class="bi bi-chevron-down ms-1"></i></a>
+                    <a href="#" class="dropbtn">Categorías <i class="bi bi-chevron-down"></i></a>
                     <ul class="dropdown-content">
                         <li><a href="#">Hombre</a></li>
                         <li><a href="#">Mujer</a></li>
                         <li><a href="#">Accesorios</a></li>
-                    </ul>
+                        <li><a href="#">subcategoria</a></li>
+                        <li><a href="#">subcategoria</a></li>
+                        <li><a href="#">subcategoria</a></li>
+                        </ul>
                 </li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
             </ul>
         </nav>
+
     </header>
 
 
@@ -111,13 +120,7 @@
 
     <div class="footer-bottom">
         <div class="bottom-container">
-            <p class="copyright">&copy; 2026 <span>Cariñitho</span>. Hecho con ❤️ para ti.</p>
-            <div class="payment-methods">
-                <i class="bi bi-credit-card-2-back" title="Visa"></i>
-                <i class="bi bi-paypal" title="PayPal"></i>
-                <i class="bi bi-bank" title="Transferencia"></i>
-                <i class="bi bi-apple" title="Apple Pay"></i>
-            </div>
+            <p class="copyright">Todos los derechos reservados <span>Cariñitho</span> &copy; 2026</p>
         </div>
     </div>
 </footer>

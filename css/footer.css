@@ -154,13 +154,7 @@
     font-weight: 600;
 }
 
-.payment-methods {
-    display: flex;
-    gap: 20px;
-    font-size: 1.6rem;
-    color: var(--text-dark);
-    opacity: 0.6;
-}
+
 
 /* Logo */
 .footer-logo {
