@@ -1,12 +1,22 @@
+/* styles.css */
 @import "variables.css";
+
 @import "navbar.css";
+
+@import "carrusel.css";
+
+@import "home.css";
+
+
+@import "productos.css";   /* Nueva importación */
+
+
+@import "testimonios.css"; /* Nueva importación */
+
+
 @import "footer.css";
 
-/* Tus estilos generales aquí */
-
-/* styles.css */
-
-html,body {
+html, body {
     background: var(--bg-soft);
     font-family: var(--font-main);
     color: var(--text-dark);
@@ -14,14 +24,19 @@ html,body {
     margin: 0;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 main {
-    padding: 80px 60px;
-    padding-top: 100px;
+    padding-top: 120px; /* Evita que el Navbar tape el carrusel */
+    padding-bottom: 80px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 80px; /* Crea un espacio limpio entre el carrusel y el hero */
+    width: 100%;
 }

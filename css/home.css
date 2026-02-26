@@ -1,0 +1,117 @@
+/* --- HERO SECTION --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 40px;
+}
+
+.hero-content { flex: 1; }
+
+.badge-new {
+    background: var(--bg-warm);
+    color: var(--primary-dark);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.hero-content h1 span { color: var(--primary); }
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* Botones */
+.hero-btns { display: flex; gap: 15px; }
+
+.btn-primary, .btn-secondary {
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 10px 20px var(--shadow-soft);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover { background: var(--bg-soft); }
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    filter: drop-shadow(0 20px 30px var(--shadow-soft));
+    border-radius: 30px; /* Por si la imagen es cuadrada */
+}
+
+/* --- CATEGORÍAS RÁPIDAS --- */
+.quick-categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+.cat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--bg-warm);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cat-card i {
+    font-size: 2rem;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.cat-card span { font-weight: 600; color: var(--text-dark); }
+
+.cat-card:hover {
+    background: var(--bg-soft);
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 850px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-btns { justify-content: center; }
+    .quick-categories { grid-template-columns: repeat(2, 1fr); }
+}

@@ -14,64 +14,117 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
+
+
+        <header>
         <nav class="navbar">
-            <a href="index.html" class="link-carinitho" style="text-decoration: none;">
+            <a href="index.html" class="link-carinitho">
                 <div class="logo-container">
                     <img src="assets/img/Carinitho_Logo.png" alt="Logo" class="logo-img">
                     <span class="Logo-text">Cariñitho</span>
                 </div>
             </a>
-            <ul>
+
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <ul class="nav-menu"> 
                 <li><a href="index.html">Inicio</a></li>
-                <li class="dropdown js-dropdown">
-                    <a href="#" class="dropbtn">Categorías <i class="bi bi-chevron-down ms-1"></i></a>
-                    <ul class="dropdown-content">
-                        <li><a href="#">Hombre</a></li>
-                        <li><a href="#">Mujer</a></li>
-                        <li><a href="#">Accesorios</a></li>
-                    </ul>
-                </li>
+                <li><a href="productos.html">Productos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
             </ul>
         </nav>
+
     </header>
+
+
     <main>
 
-        <h1>Aca va la seccion de contacto</h1>
+        <h1>Bienvenidos a la seccion de contactos </h1>
+        <br>
 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
 
-        
+        <br>
          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
-        
+        <br>
          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
-
+        <br>
          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
 
     </main>
 
-    <footer>
 
-        <h2>Aca va la seccion del footer </h2>
+    <footer class="main-footer">
 
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
-        
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
-        
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
-        
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
-        
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
+        <div class="footer-container">
+            <div class="footer-section brand">
+                <div class="footer-logo">
+                    <img src="assets/img/Carinitho_Logo.png" alt="Logo Cariñitho">
+                    <span>Cariñitho</span>
+                </div>
+                <p class="brand-description">Creamos momentos mágicos con detalles que enamoran. Calidad y ternura en cada producto.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="#">Guía de envio</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-info">
+                <h3>Atención al Cliente</h3>
+                <ul>
+                    <li><i class="bi bi-geo-alt"></i> Bacacay 2938</li>
+                    <li><i class="bi bi-telephone"></i> 1122345456</li>
+                    <li><i class="bi bi-envelope"></i> 20gomezmendez@gmail.com</li>
+                    <li><i class="bi bi-clock"></i> Lun - Vie: 8:00 - 16:00</li>
+                </ul>
+            </div>
 
 
 
+    <div class="footer-section visual-nav">
+            <h3>Descubre más</h3>
+            <div class="visual-icons">
+                <a href="#" class="v-item">
+                    <i class="bi bi-map"></i>
+                    <span>Ubicación</span>
+                </a>
+                <a href="#" class="v-item">
+                    <i class="bi bi-stars"></i>
+                    <span>Novedades</span>
+                </a>
+                <a href="#" class="v-item">
+                    <i class="bi bi-balloon-heart"></i>
+                    <span>Regalos</span>
+                </a>
+                <a href="#" class="v-item">
+                    <i class="bi bi-magic"></i>
+                    <span>Ofertas</span>
+                </a>
+            </div>
+        </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="bottom-container">
+                <p class="copyright">Todos los derechos reservados <span>Cariñitho</span> &copy; 2026</p>
+            </div>
+        </div>
     </footer>
-
-
-
-
+    <script src="/js/shop-logic/menu-clicker.js"></script>
 </body>
 </html>

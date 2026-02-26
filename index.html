@@ -7,11 +7,13 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
     
@@ -28,18 +30,9 @@
                 <i class="bi bi-list"></i>
             </button>
 
-            <ul class="nav-menu"> <li><a href="index.html">Inicio</a></li>
-                <li class="dropdown js-dropdown">
-                    <a href="#" class="dropbtn">Categorías <i class="bi bi-chevron-down"></i></a>
-                    <ul class="dropdown-content">
-                        <li><a href="#">Hombre</a></li>
-                        <li><a href="#">Mujer</a></li>
-                        <li><a href="#">Accesorios</a></li>
-                        <li><a href="#">subcategoria</a></li>
-                        <li><a href="#">subcategoria</a></li>
-                        <li><a href="#">subcategoria</a></li>
-                        </ul>
-                </li>
+            <ul class="nav-menu"> 
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
             </ul>
@@ -47,85 +40,191 @@
 
     </header>
 
-
     <main>
+        <div class="carousel-container">
+            <div class="carousel-track" id="track">
+                <div class="slide"><img src="https://picsum.photos/1200/500?random=1" alt="Imagen 1"><div class="caption">Exploración 01</div></div>
+                <div class="slide"><img src="https://picsum.photos/1200/500?random=2" alt="Imagen 2"><div class="caption">Aventura 02</div></div>
+                <div class="slide"><img src="https://picsum.photos/1200/500?random=3" alt="Imagen 3"><div class="caption">Naturaleza 03</div></div>
+                <div class="slide"><img src="https://picsum.photos/1200/500?random=4" alt="Imagen 4"><div class="caption">Ciudad 04</div></div>
+                <div class="slide"><img src="https://picsum.photos/1200/500?random=5" alt="Imagen 5"><div class="caption">Mar 05</div></div>
+            </div>
 
-        <h1>Cariñitho Web</h1>
+            <button class="btn prev" id="prevBtn">❮</button>
+            <button class="btn next" id="nextBtn">❯</button>
 
-      
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
+            <div class="dots-container" id="dotsContainer"></div>
+        </div>
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge-new">¡Novedades de temporada! 🌸</span>
+                <h1>Regalos que abrazan el <span>corazón</span></h1>
+                <p>En Cariñitho creamos detalles mágicos para convertir cualquier momento en un recuerdo inolvidable.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn-primary">Ver Catálogo</a>
+                    <a href="#" class="btn-secondary">Contactar</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://picsum.photos/1200/500?random=1" alt="Cariñitho Regalos">
+            </div>
+        </section>
+
+        <section class="quick-categories">
+            <div class="cat-card"><i>👕</i><span>Remeras</span></div>
+            <div class="cat-card"><i>👗</i><span>Vestidos</span></div>
+            <div class="cat-card"><i>👟</i><span>Calzado</span></div>
+            <div class="cat-card"><i>👶</i><span>Bebés</span></div>
+        </section>
+
+
+
+
+
+        <section class="featured-products">
+            <div class="section-title">
+                <h2>Colección <span>Pequeños Pasos</span></h2>
+                <p>Moda cómoda y tierna para niños de 0 a 10 años</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">Nuevo</div>
+                    <img src="https://picsum.photos/400/500?random=20" alt="Conjunto Algodón">
+                    <div class="product-info">
+                        <h3>Conjunto Algodón Orgánico</h3>
+                        <p class="price">$28.00</p>
+                        <button class="add-to-cart">Elegir Talla</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://picsum.photos/400/500?random=21" alt="Vestido">
+                    <div class="product-info">
+                        <h3>Vestido Floral Primavera</h3>
+                        <p class="price">$32.50</p>
+                        <button class="add-to-cart">Elegir Talla</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://picsum.photos/400/500?random=22" alt="Pijama">
+                    <div class="product-info">
+                        <h3>Pijama Soft Dreams</h3>
+                        <p class="price">$22.00</p>
+                        <button class="add-to-cart">Elegir Talla</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="testimonials">
+            <div class="section-title">
+                <h2>Clientes <span>Felices</span></h2>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"El regalo más tierno que he comprado. La atención es excelente y llegó súper rápido."</p>
+                    <span class="customer-name">- María García</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"La caja de dulces estaba personalizada justo como quería. ¡A mi novio le encantó!"</p>
+                    <span class="customer-name">- Juan Pérez</span>
+                </div>
+                 <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"La caja de dulces estaba personalizada justo como quería. ¡A mi novio le encantó!"</p>
+                    <span class="customer-name">- Juan Pérez</span>
+                </div>
+                 <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"La caja de dulces estaba personalizada justo como quería. ¡A mi novio le encantó!"</p>
+                    <span class="customer-name">- Juan Pérez</span>
+                </div>
+            </div>
+
+
+            
+
+        </section>
+
+
     </main>
 
- <footer class="main-footer">
+    <footer class="main-footer">
 
-    <div class="footer-container">
-        <div class="footer-section brand">
-            <div class="footer-logo">
-                <img src="assets/img/Carinitho_Logo.png" alt="Logo Cariñitho">
-                <span>Cariñitho</span>
+        <div class="footer-container">
+            <div class="footer-section brand">
+                <div class="footer-logo">
+                    <img src="assets/img/Carinitho_Logo.png" alt="Logo Cariñitho">
+                    <span>Cariñitho</span>
+                </div>
+                <p class="brand-description">Creamos momentos mágicos con detalles que enamoran. Calidad y ternura en cada producto.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                </div>
             </div>
-            <p class="brand-description">Creamos momentos mágicos con detalles que enamoran. Calidad y ternura en cada producto.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-                <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+            <div class="footer-section links">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="#">Guía de envio</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-info">
+                <h3>Atención al Cliente</h3>
+                <ul>
+                    <li><i class="bi bi-geo-alt"></i> Bacacay 2938</li>
+                    <li><i class="bi bi-telephone"></i> 1122345456</li>
+                    <li><i class="bi bi-envelope"></i> 20gomezmendez@gmail.com</li>
+                    <li><i class="bi bi-clock"></i> Lun - Vie: 8:00 - 16:00</li>
+                </ul>
+            </div>
+
+
+
+    <div class="footer-section visual-nav">
+            <h3>Descubre más</h3>
+            <div class="visual-icons">
+                <a href="#" class="v-item">
+                    <i class="bi bi-map"></i>
+                    <span>Ubicación</span>
+                </a>
+                <a href="#" class="v-item">
+                    <i class="bi bi-stars"></i>
+                    <span>Novedades</span>
+                </a>
+                <a href="#" class="v-item">
+                    <i class="bi bi-balloon-heart"></i>
+                    <span>Regalos</span>
+                </a>
+                <a href="#" class="v-item">
+                    <i class="bi bi-magic"></i>
+                    <span>Ofertas</span>
+                </a>
             </div>
         </div>
-
-        <div class="footer-section links">
-            <h3>Explorar</h3>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
-                <li><a href="#">Guía de envio</a></li>
-                <li><a href="#">Preguntas Frecuentes</a></li>
-            </ul>
         </div>
 
-        <div class="footer-section contact-info">
-            <h3>Atención al Cliente</h3>
-            <ul>
-                <li><i class="bi bi-geo-alt"></i> Bacacay 2938</li>
-                <li><i class="bi bi-telephone"></i> 1122345456</li>
-                <li><i class="bi bi-envelope"></i> 20gomezmendez@gmail.com</li>
-                <li><i class="bi bi-clock"></i> Lun - Vie: 8:00 - 16:00</li>
-            </ul>
+        <div class="footer-bottom">
+            <div class="bottom-container">
+                <p class="copyright">Todos los derechos reservados <span>Cariñitho</span> &copy; 2026</p>
+            </div>
         </div>
-
-
-
-   <div class="footer-section visual-nav">
-        <h3>Descubre más</h3>
-        <div class="visual-icons">
-            <a href="#" class="v-item">
-                <i class="bi bi-map"></i>
-                <span>Ubicación</span>
-            </a>
-            <a href="#" class="v-item">
-                <i class="bi bi-stars"></i>
-                <span>Novedades</span>
-            </a>
-            <a href="#" class="v-item">
-                <i class="bi bi-balloon-heart"></i>
-                <span>Regalos</span>
-            </a>
-            <a href="#" class="v-item">
-                <i class="bi bi-magic"></i>
-                <span>Ofertas</span>
-            </a>
-        </div>
-    </div>
-    </div>
-
-    <div class="footer-bottom">
-        <div class="bottom-container">
-            <p class="copyright">Todos los derechos reservados <span>Cariñitho</span> &copy; 2026</p>
-        </div>
-    </div>
-</footer>
-
+    </footer>
 
     <script src="js/shop-logic/menu-clicker.js"></script>
+    <script src="js/shop-logic/carrusel-logic.js"></script>
+
 </body>
 </html>

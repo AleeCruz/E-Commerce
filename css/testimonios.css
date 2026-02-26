@@ -1,0 +1,49 @@
+/* testimonios.css */
+
+.testimonials {
+    background: var(--bg-warm);
+    width: 100%;
+    padding: 80px 20px;
+    border-radius: 50px;
+    margin-top: 40px;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 350px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+.stars {
+    color: #f1c40f; /* Dorado para las estrellas */
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.customer-name {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 0.9rem;
+}

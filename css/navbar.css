@@ -33,7 +33,6 @@
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--bg-warm);
-    transition: all 0.3s ease;
 }
 
 .Logo-text {
@@ -61,67 +60,6 @@
 .navbar a:hover { color: var(--primary); }
 
 /* =========================================
-   DROPDOWN (ESCRITORIO)
-   ========================================= */
-.dropdown { position: relative; }
-
-.dropdown-content {
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 220px; /* Ancho fijo para que no se deforme */
-    border-radius: 12px;
-    box-shadow: 0 10px 25px var(--shadow-soft);
-    top: 130%;
-    left: 0;
-    border: 1px solid var(--bg-warm);
-    z-index: 1000;
-    list-style: none;
-    
-    /* Flex vertical para subcategorías */
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0;
-
-    /* Animación */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-}
-
-/* Activar dropdown */
-.dropdown.active .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-content li { width: 100%; }
-
-.dropdown-content li a {
-    display: block;
-    padding: 12px 20px;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
-}
-
-.dropdown-content li a:hover {
-    background-color: var(--bg-soft);
-    color: var(--primary-dark) !important;
-    padding-left: 25px;
-}
-
-/* Icono Flecha */
-.bi-chevron-down {
-    font-size: 0.8rem;
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-    display: inline-block;
-}
-
-.dropdown.active .bi-chevron-down { transform: rotate(180deg); }
-
-/* =========================================
    RESPONSIVO (MENÚ HAMBURGUESA)
    ========================================= */
 .menu-toggle {
@@ -140,43 +78,26 @@
 
     .navbar ul.nav-menu {
         position: fixed;
-        top: 80px;
+        top: 80px; /* Ajusta esto según el alto de tu navbar */
         left: -100%;
         flex-direction: column;
         background: white;
         width: 100%;
         height: calc(100vh - 80px);
-        gap: 0;
+        gap: 25px; /* Antes era 1, ahora con px funciona */
         transition: 0.4s ease;
-        padding: 20px;
+        padding: 40px 20px;
         overflow-y: auto;
-        align-items: flex-start; /* Alinea al inicio en móvil */
+        align-items: center; /* Centrado se ve más tierno para Cariñitho */
     }
 
     .navbar ul.nav-menu.active { left: 0; }
 
-    .navbar ul li { width: 100%; }
-
-    /* Ajuste Dropdown Móvil (Acordeón) */
-    .dropdown-content {
-        position: static; /* Empuja el resto de enlaces hacia abajo */
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        border: none;
-        display: none; /* Controlado por JS */
-        background-color: var(--bg-soft);
-        margin: 10px 0;
-        border-radius: 8px;
-    }
-
-    .dropdown.active .dropdown-content {
-        display: flex; /* Se muestra al hacer click */
-    }
-
-    .dropdown-content li a {
-        padding: 12px 25px;
-        border-bottom: 1px solid rgba(0,0,0,0.03);
+    .navbar ul li { width: 100%; text-align: center; }
+    
+    .navbar ul li a {
+        font-size: 1.8rem;
+        display: block;
+        padding: 10px;
     }
 }
