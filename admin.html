@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cariñitho - Panel de Control</title>
+    
+    <link rel="stylesheet" href="css/variables.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-admin: var(--primary-dark);
+            --danger: #ef4444;
+            --bg-admin: var(--bg-soft);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-admin);
+            padding: 20px;
+            color: var(--text-dark);
+        }
+
+        .admin-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px var(--shadow-soft);
+            border: 2px solid var(--bg-warm);
+        }
+
+        h1 { font-weight: 600; text-align: center; color: var(--primary-admin); margin-bottom: 30px; }
+
+        input, textarea, select {
+            width: 100%; padding: 14px; border-radius: 12px; 
+            border: 2px solid var(--bg-warm); margin-bottom: 15px; 
+            font-family: inherit; box-sizing: border-box; outline: none;
+        }
+
+        input:focus { border-color: var(--primary); }
+
+        button {
+            width: 100%; padding: 16px; background: var(--primary); 
+            color: white; border: none; border-radius: 50px; 
+            cursor: pointer; font-weight: 600; font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        button:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        /* Estilos de la Lista de Productos */
+        .item {
+            display: flex; justify-content: space-between; align-items: center; 
+            background: #fff; padding: 15px; border-radius: 20px; 
+            margin-bottom: 10px; border: 1px solid var(--bg-warm);
+        }
+
+        .item img { width: 65px; height: 65px; border-radius: 12px; object-fit: cover; }
+
+        .delete {
+            background: #fee2e2; color: var(--danger); 
+            width: auto; padding: 10px 20px; border-radius: 10px;
+        }
+
+        .badge {
+            background: var(--bg-warm); color: var(--primary-dark); 
+            padding: 5px 10px; border-radius: 8px; font-size: 0.75rem; 
+            text-transform: uppercase; font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <h1>🧸 Panel de Control</h1>
+
+        <form id="productForm">
+            <input type="text" id="nombre" placeholder="Nombre del producto (ej: Conjunto Osito)" required>
+            <textarea id="descripcion" placeholder="Descripción breve y tierna..." rows="3"></textarea>
+            <input type="number" id="precio" placeholder="Precio ($)" step="0.01" required>
+            
+            <select id="categoria" required>
+                <option value="">Selecciona una categoría</option>
+                <option value="remeras">Remeras</option>
+                <option value="vestidos">Vestidos</option>
+                <option value="bebes">Bebés</option>
+            </select>
+
+            <label style="font-size: 0.9rem; font-weight: 600; margin-left: 5px;">Subir fotos:</label>
+            <input type="file" id="foto" accept="image/*" multiple required>
+            <button type="submit" id="btnPublicar">Publicar en la Tienda</button>
+        </form>
+
+        <hr style="margin:40px 0; border:0; border-top: 2px dashed var(--bg-warm);">
+        <h2 style="font-size: 1.3rem; margin-bottom: 20px;">Productos en Linea</h2>
+        <div id="lista"></div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        // Mantenemos tu config
+        const firebaseConfig = {
+            apiKey: "AIzaSyCfiFNastJGZzhzD4rceW6wN3_E8fxUFpg",
+            authDomain: "e-commerce-1db3e.firebaseapp.com",
+            projectId: "e-commerce-1db3e",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const CLOUD_NAME = "da5bwh0fx";
+        const UPLOAD_PRESET = "e-commerce";
+
+        const form = document.getElementById("productForm");
+        const lista = document.getElementById("lista");
+
+        async function cargarProductos(){
+            const q = query(collection(db,"productos"), orderBy("fecha","desc"));
+            const snap = await getDocs(q);
+            lista.innerHTML = "";
+
+            snap.forEach(docu => {
+                const p = docu.data();
+                const div = document.createElement("div");
+                div.className = "item";
+                div.innerHTML = `
+                    <div style="display:flex; gap:15px; align-items:center;">
+                        <img src="${p.imagenes?.[0] || 'https://via.placeholder.com/65'}">
+                        <div>
+                            <strong style="display:block; font-size:1.1rem;">${p.nombre}</strong>
+                            <span class="badge">${p.categoria}</span>
+                            <div style="color:var(--primary-dark); font-weight:600;">$${p.precio}</div>
+                        </div>
+                    </div>
+                `;
+                const btn = document.createElement("button");
+                btn.innerText = "Eliminar";
+                btn.className = "delete";
+                btn.onclick = async() => {
+                    if(confirm("¿Eliminar este producto permanentemente?")) {
+                        await deleteDoc(doc(db,"productos",docu.id));
+                        cargarProductos();
+                    }
+                };
+                div.appendChild(btn);
+                lista.appendChild(div);
+            });
+        }
+
+        form.onsubmit = async(e) => {
+            e.preventDefault();
+            const btn = document.getElementById("btnPublicar");
+            btn.innerText = "Subiendo al servidor...";
+            btn.disabled = true;
+
+            const files = document.getElementById("foto").files;
+            let imagenes = [];
+
+            try {
+                for (let i = 0; i < files.length; i++) {
+                    const formData = new FormData();
+                    formData.append("file", files[i]);
+                    formData.append("upload_preset", UPLOAD_PRESET);
+                    const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, { method:"POST", body:formData });
+                    const data = await res.json();
+                    imagenes.push(data.secure_url);
+                }
+
+                await addDoc(collection(db,"productos"), {
+                    nombre: document.getElementById("nombre").value,
+                    descripcion: document.getElementById("descripcion").value,
+                    precio: Number(document.getElementById("precio").value),
+                    categoria: document.getElementById("categoria").value,
+                    imagenes: imagenes,
+                    fecha: serverTimestamp()
+                });
+
+                form.reset();
+                cargarProductos();
+            } catch (err) {
+                alert("Error al subir. Revisa Cloudinary o Firebase.");
+            } finally {
+                btn.innerText = "Publicar en la Tienda";
+                btn.disabled = false;
+            }
+        };
+
+        cargarProductos();
+    </script>
+</body>
+</html>

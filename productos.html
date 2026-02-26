@@ -1,19 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias</title>
+    <title>Productos - Cariñitho</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/productos.css">
 
+    <style>
+        /* Ajustes para los filtros y el layout dinámico */
+        .shop-section {
+            padding: 40px 5%;
+            padding-top: 120px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .Titulo h1 {
+            font-family: var(--font-main);
+            color: var(--primary-dark);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 2px solid var(--bg-warm);
+            background: white;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-weight: 600;
+            transition: 0.3s;
+            color: var(--text-dark);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px var(--shadow-soft);
+        }
+
+        /* ESTO HACE QUE SEA RESPONSIVO */
+        #catalog {
+            display: grid;
+            /* En celular: 1 columna. En tablet: 2. En PC: 3 o 4 */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* Si el celular es muy pequeño, bajamos el minmax */
+        @media (max-width: 480px) {
+            #catalog {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            .Titulo h1 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
     
@@ -25,11 +89,9 @@
                     <span class="Logo-text">Cariñitho</span>
                 </div>
             </a>
-
             <button class="menu-toggle" aria-label="Abrir menú">
                 <i class="bi bi-list"></i>
             </button>
-
             <ul class="nav-menu"> 
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="productos.html">Productos</a></li>
@@ -37,31 +99,26 @@
                 <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
             </ul>
         </nav>
-
     </header>
 
+    <main class="shop-section">
+         <div class="Titulo">
+            <h1>Nuestra Tienda</h1>
+            <p style="text-align:center; color: var(--text-dark); opacity: 0.7;">Filtrar por categoría:</p>
+        </div>
 
+        <div class="filter-container">
+            <button class="filter-btn active" data-cat="todas">Todas</button>
+            <button class="filter-btn" data-cat="remeras">Remeras</button>
+            <button class="filter-btn" data-cat="vestidos">Vestidos</button>
+            <button class="filter-btn" data-cat="bebes">Bebés</button>
+        </div>
 
-
-    <main>
-
-        <h1>Bienvenidos a la seccion de Productos  </h1>
-        
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur eos provident est fuga alias laboriosam, magni minima cumque, obcaecati cum illo et illum harum asperiores dolorum assumenda. Beatae, voluptatum eligendi!</p>
-        
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dignissimos et nihil nemo minus rerum vero assumenda accusamus aut perspiciatis quae nesciunt tenetur, qui blanditiis commodi inventore quia dolorum quis.</p>
+        <div id="catalog">
+            </div>
     </main>
 
-
-
-
-
-
-
-
-
-
-    <footer class="main-footer">
+        <footer class="main-footer">
 
         <div class="footer-container">
             <div class="footer-section brand">
@@ -131,6 +188,74 @@
     </footer>
 
     <script src="js/shop-logic/menu-clicker.js"></script>
+    
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, orderBy, where } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
+    const firebaseConfig = {
+        apiKey: "AIzaSyCfiFNastJGZzhzD4rceW6wN3_E8fxUFpg",
+        authDomain: "e-commerce-1db3e.firebaseapp.com",
+        projectId: "e-commerce-1db3e",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const catalog = document.getElementById("catalog");
+
+    async function cargarProductos(categoriaFiltro = "todas") {
+        catalog.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>Cargando ternura...</p>";
+        
+        let q;
+        if (categoriaFiltro === "todas") {
+            q = query(collection(db, "productos"), orderBy("fecha", "desc"));
+        } else {
+            q = query(collection(db, "productos"), where("categoria", "==", categoriaFiltro), orderBy("fecha", "desc"));
+        }
+
+        try {
+            const snap = await getDocs(q);
+            catalog.innerHTML = "";
+            
+            if(snap.empty) {
+                catalog.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>No hay productos en esta categoría.</p>";
+                return;
+            }
+
+            snap.forEach(docu => {
+                const p = docu.data();
+                const card = document.createElement("div");
+                // Usamos la clase de tu archivo css/productos.css
+                card.className = "product-card"; 
+                card.innerHTML = `
+                    <div class="product-badge">${p.categoria}</div>
+                    <img src="${p.imagenes?.[0] || 'assets/img/placeholder.png'}" alt="${p.nombre}">
+                    <div class="product-info">
+                        <h3>${p.nombre}</h3>
+                        <p class="price">$${p.precio}</p>
+                        <button class="add-to-cart">Ver Detalle</button>
+                    </div>
+                `;
+                card.onclick = () => window.location.href = `producto.html?id=${docu.id}`;
+                catalog.appendChild(card);
+            });
+        } catch (error) {
+            console.error("Error:", error);
+            catalog.innerHTML = "<p>Error al cargar productos.</p>";
+        }
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.onclick = (e) => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            cargarProductos(e.target.dataset.cat);
+        };
+    });
+
+    cargarProductos();
+    </script>
+
+    
 </body>
 </html>

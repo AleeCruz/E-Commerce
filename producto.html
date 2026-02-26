@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .nav-back { display:inline-block; margin-bottom:20px; color:var(--primary); text-decoration:none; font-weight:600; }
+        .container{ max-width:1100px; margin:auto; display:grid; grid-template-columns:1fr 1fr; gap:50px; background:white; padding:30px; border-radius:30px; box-shadow:0 10px 30px rgba(0,0,0,0.05); margin-top: 100px;}
+        .gallery{display:flex;flex-direction:column;gap:15px;}
+        .main-image{ width:100%; height:450px; border-radius:20px; overflow:hidden; border:1px solid #eee; }
+        .main-image img{ width:100%; height:100%; object-fit:cover; }
+        .thumbnails{display:flex;gap:10px;flex-wrap:wrap;}
+        .thumbnails img{ width:70px;height:70px;border-radius:10px; object-fit:cover;cursor:pointer; border:2px solid transparent; }
+        .thumbnails img.active{ border-color:var(--primary); }
+        .info h1{font-size:2.2rem; margin:0 0 10px 0; color:#0f172a;}
+        .category-badge { background:#eff6ff; color:var(--primary); padding:5px 12px; border-radius:8px; font-size:0.8rem; font-weight:600; display:inline-block; margin-bottom:15px; text-transform:uppercase; }
+        .price{ font-size:2.5rem; font-weight:800; color:var(--primary); margin-bottom:20px; }
+        .desc{ color:var(--gray); line-height:1.7; margin-bottom:30px; font-size:1.1rem; }
+        .buy-btn{ width:100%; padding:18px; background:#25d366; color:white; border:none; border-radius:15px; cursor:pointer; font-size:1.1rem; font-weight:700; transition:0.3s; }
+        .buy-btn:hover { background:#128c7e; transform:scale(1.02); }
+        @media(max-width:850px){ .container{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="link-carinitho">
+                <div class="logo-container">
+                    <img src="assets/img/Carinitho_Logo.png" alt="Logo" class="logo-img">
+                    <span class="Logo-text">Cariñitho</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <ul class="nav-menu"> 
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+
+    <div style="max-width:1100px; margin:auto;">
+
+        <a href="productos.html" class="nav-back">← Volver al catálogo</a>
+        <div class="container">
+            <div class="gallery">
+                <div class="main-image"><img id="mainImg" src=""></div>
+                <div class="thumbnails" id="thumbs"></div>
+            </div>
+            <div class="info">
+                <span id="catBadge" class="category-badge">Categoría</span>
+                <h1 id="nombre">Cargando...</h1>
+                <div class="price" id="precio">$0.00</div>
+                <div class="desc" id="descripcion">Cargando descripción del producto...</div>
+                <button class="buy-btn" id="comprar">Pedir por WhatsApp</button>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+    <footer class="main-footer">
+
+        <div class="footer-container">
+            <div class="footer-section brand">
+                <div class="footer-logo">
+                    <img src="assets/img/Carinitho_Logo.png" alt="Logo Cariñitho">
+                    <span>Cariñitho</span>
+                </div>
+                <p class="brand-description">Creamos momentos mágicos con detalles que enamoran. Calidad y ternura en cada producto.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="#">Guía de envio</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-info">
+                <h3>Atención al Cliente</h3>
+                <ul>
+                    <li><i class="bi bi-geo-alt"></i> Bacacay 2938</li>
+                    <li><i class="bi bi-telephone"></i> 1122345456</li>
+                    <li><i class="bi bi-envelope"></i> 20gomezmendez@gmail.com</li>
+                    <li><i class="bi bi-clock"></i> Lun - Vie: 8:00 - 16:00</li>
+                </ul>
+            </div>
+
+
+
+    <div class="footer-section visual-nav">
+            <h3>Descubre más</h3>
+            <div class="visual-icons">
+                <a href="#" class="v-item">
+                    <i class="bi bi-map"></i>
+                    <span>Ubicación</span>
+                </a>
+                <a href="#" class="v-item">
+                    <i class="bi bi-stars"></i>
+                    <span>Novedades</span>
+                </a>
+                <a href="#" class="v-item">
+                    <i class="bi bi-balloon-heart"></i>
+                    <span>Regalos</span>
+                </a>
+                <a href="#" class="v-item">
+                    <i class="bi bi-magic"></i>
+                    <span>Ofertas</span>
+                </a>
+            </div>
+        </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="bottom-container">
+                <p class="copyright">Todos los derechos reservados <span>Cariñitho</span> &copy; 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCfiFNastJGZzhzD4rceW6wN3_E8fxUFpg",
+            authDomain: "e-commerce-1db3e.firebaseapp.com",
+            projectId: "e-commerce-1db3e",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        async function cargarProducto(){
+            if(!id) return;
+            const docSnap = await getDoc(doc(db,"productos",id));
+            if(!docSnap.exists()) return;
+
+            const p = docSnap.data();
+            document.getElementById("nombre").innerText = p.nombre;
+            document.getElementById("precio").innerText = "$" + p.precio;
+            document.getElementById("descripcion").innerText = p.descripcion;
+            document.getElementById("catBadge").innerText = p.categoria || "General";
+
+            const imagenes = p.imagenes || [];
+            const mainImg = document.getElementById("mainImg");
+            const thumbs = document.getElementById("thumbs");
+
+            mainImg.src = imagenes[0] || 'https://via.placeholder.com/500';
+
+            imagenes.forEach((url,index)=>{
+                const img = document.createElement("img");
+                img.src = url;
+                if(index===0) img.classList.add("active");
+                img.onclick = ()=>{
+                    mainImg.src = url;
+                    document.querySelectorAll(".thumbnails img").forEach(i=>i.classList.remove("active"));
+                    img.classList.add("active");
+                };
+                thumbs.appendChild(img);
+            });
+
+            document.getElementById("comprar").onclick = ()=>{
+                const num = "1136624543"; // CAMBIA ESTO POR TU NÚMERO
+                const msg = encodeURIComponent(`Hola! Me interesa comprar: ${p.nombre} ($${p.precio})`);
+                window.location.href = `https://wa.me/${num}?text=${msg}`;
+            };
+        }
+        cargarProducto();
+    </script>
+</body>
+</html>
