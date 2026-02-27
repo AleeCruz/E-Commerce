@@ -1,0 +1,164 @@
+/* productos.css */
+
+.featured-products {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+}
+
+.section-title h2 span {
+    color: var(--primary);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.product-card {
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--shadow-soft);
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--primary);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px; /* Más alto para que se vea el conjunto completo de ropa */
+    object-fit: cover;
+}
+
+
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: var(--primary-dark);
+}
+
+
+.product-slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.product-slider-container {
+    overflow: hidden;
+    /* Calculamos: (280px de tarjeta * 3) + (25px de gap * 2) = 890px */
+    width: 890px; 
+    margin: 0 auto; /* Lo centramos */
+}
+.product-slider-track {
+    display: flex;
+    gap: 25px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    width: max-content; 
+    padding: 20px 0;
+}
+.product-slider-track .product-card {
+    flex: 0 0 280px; /* Ancho fijo para los 6 */
+    width: 280px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px var(--shadow-soft);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product-slider-track .product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-slider-track .product-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.slider-arrow {
+    position: absolute;
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+}
+
+.slider-arrow.prev { left: 0; }
+.slider-arrow.next { right: 0; }
+
+@media (max-width: 1024px) {
+    .product-slider-container {
+        width: 585px; /* (280 * 2) + 25 */
+    }
+}
+
+/* En celulares, bajamos a 1 producto */
+@media (max-width: 768px) {
+    .product-slider-container {
+        width: 280px;
+    }
+}
